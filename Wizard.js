@@ -4,10 +4,13 @@ import Person from './Person.js';
 class Wizard extends Person {
   // provide a customized version of the constructor
   constructor(name, specialty) {
-    super();
-    this.name = name;
+    super(name); // Call Person.constructor(), pass it `name`
+                // You have to run the setup instructions from the super class.
+    //this.name = name;
     this.specialty = specialty;
 
+    // We can assign attributes using literal values.
+    // We don't have to use arguments!
     this.spellPoints = 10;
     this.spells = [
       {
@@ -22,6 +25,8 @@ class Wizard extends Person {
     this.spells.forEach(s => console.log(`- ${s.name} (${s.points})`));
   }
 
+  // Convenience/helper function to tell me if this wizard knows
+  // a particular spell
   findSpell(spellName) {
     return this.spells.find(s => s.name.toLowerCase() === spellName.toLowerCase());
   }

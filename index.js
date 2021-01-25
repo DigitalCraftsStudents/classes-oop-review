@@ -9,7 +9,12 @@ async function main() {
   const name = await prompt(`What's your name?`);
   const specialty = await prompt(`What's your specialty? (example: "defense against the dark arts")`);
 
+  // To instantiate an instance of Wizard:
+  // 1. use the `new` keyword
+  // 2. call the class like it's a function
   const w = new Wizard(name, specialty);
+
+  
   let running = true;
   while (running) {
     w.listSpells();
